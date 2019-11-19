@@ -23,11 +23,11 @@ describe('fetchData', () => {
 
     axios.get.mockImplementationOnce(() => Promise.resolve(data));
 
-    const url = `${API}/search?query=react`;
-
     await expect(fetchData('react')).resolves.toEqual(data);
 
-    expect(axios.get).toHaveBeenCalledWith(url);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${API}/search?query=react`,
+    );
   });
 
   it('fetches erroneously data from an API', async () => {
